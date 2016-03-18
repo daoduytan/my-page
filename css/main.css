@@ -833,7 +833,7 @@ input:focus, textarea:focus {
   color: white;
   padding: 30px 0;
   position: relative;
-  background: url(/images/cv.jpg) no-repeat;
+  background: url(../images/cv.jpg) no-repeat;
   background-size: cover; }
 
 .about:before {
@@ -902,7 +902,7 @@ input:focus, textarea:focus {
 
 /* works */
 .top-works {
-  background: url(/images/geometry.png);
+  background: url(../images/geometry.png);
   padding: 50px 0; }
 
 .top-works * {
