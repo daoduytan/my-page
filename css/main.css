@@ -783,7 +783,7 @@ input:focus, textarea:focus {
 
 /* intro */
 .intro {
-  background: #3F5765 url(http://daoduytan.github.io/me/images/cir.png) no-repeat center;
+  background: #3F5765 url(../images/cir.png) no-repeat center;
   background-size: cover;
   min-height: 650px;
   position: relative;
@@ -1067,7 +1067,7 @@ input:focus, textarea:focus {
 
 /*articles*/
 .articles {
-  background: #eee url(http://daoduytan.github.io/me/images/article-bg.jpg); }
+  background: #eee url(../images/article-bg.jpg); }
 
 .articles .section-intro {
   padding: 100px 0 50px; }
@@ -1143,7 +1143,7 @@ input:focus, textarea:focus {
 
 /*contact*/
 .contact {
-  background: url(/images/contact.jpg) no-repeat 50% 50%;
+  background: url(../images/contact.jpg) no-repeat 50% 50%;
   background-size: cover;
   padding: 50px 0;
   position: relative;
@@ -1228,7 +1228,7 @@ input:focus, textarea:focus {
   font-size: 25px; }
 
 .socials .facebook, .socials .google-plus, .socials .twiter {
-  background-image: url(http://daoduytan.github.io/me/images/social.png);
+  background-image: url(../images/social.png);
   padding-bottom: 4%; }
 
 .socials .facebook {
