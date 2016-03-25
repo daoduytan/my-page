@@ -130,12 +130,14 @@
 		close_work();
 
 		$('.btn-nav').click(function() {
-			$(this).toggleClass('close');
 
 			if(!$(this).hasClass('open')) {
 				openmenu();
 
 				$('.main-nav ul li').each(function(i){
+					$(this).removeClass('is-visible').children('a').click(function() {
+							closemenu();
+					});
 		      setTimeout(function(){
 		        $('.main-nav ul li').eq(i).addClass('is-visible');
 		      }, 100 * i);
@@ -143,10 +145,17 @@
 			}
 			else {
 				closemenu();
+				$('.main-nav ul li').each(function(i){
+		      setTimeout(function(){
+		        $('.main-nav ul li').eq(i).removeClass('is-visible');
+		      }, 200 * i);
+		    });
 			}
 		});
 
 	});
+
+
 
 	function openmenu() {
 		$('.btn-nav').addClass('open');

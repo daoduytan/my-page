@@ -729,8 +729,7 @@ input:focus, textarea:focus {
 
 /* header */
 .header {
-  width: 135px;
-  background: #eee; }
+  width: 135px;}
 
  .header-container {
   position: fixed;
@@ -964,9 +963,7 @@ input:focus, textarea:focus {
 .works .detail-work {
   position: relative;
   z-index: 1000;
-  /*min-height: 320px;*/
   background: #F9F9F9;
-  /*display: none;*/
   height: 0;
   overflow: hidden; }
 
@@ -978,7 +975,7 @@ input:focus, textarea:focus {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  top: 20px;
+  top: 60px;
   right: 20px;
   background: #fff;
   text-align: center;
@@ -1277,7 +1274,7 @@ input:focus, textarea:focus {
     top: 0;
     right: 0;
     border: none;
-    background: #fff;
+    background: transparent;
     height: 50px;
     width: 40px;
     padding: 0; }
@@ -1286,7 +1283,8 @@ input:focus, textarea:focus {
     left: 5px; }
 
   .btn-nav span::after, .btn-nav span::before {
-    content: ""; }
+    content: "";
+  transition: all .3s ease-in-out;}
 
   .btn-nav span, .btn-nav span::after, .btn-nav span::before {
     display: inline-block;
@@ -1297,6 +1295,17 @@ input:focus, textarea:focus {
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease; }
+
+  .btn-nav.open span {
+    height: 5px;
+  }
+
+  .btn-nav.open span::after {
+    bottom: 0 !important;
+  }
+  .btn-nav.open span::before {
+    top: 0 !important;
+  }
 
   .btn-nav span::after {
     bottom: 10px;
@@ -1337,7 +1346,6 @@ input:focus, textarea:focus {
   .header {
     height: 50px;
     width: 100%;
-    background: #eee;
     position: fixed;
     top: 0;
     left: 0;
@@ -1383,6 +1391,7 @@ input:focus, textarea:focus {
     flex-direction: column;
     justify-content: center;
       background: rgba(255, 255, 255, .95);
+  font-family: 'Montserrat', sans-serif;
   }
 
   .header-container .main-nav ul {
@@ -1397,13 +1406,22 @@ input:focus, textarea:focus {
       transform: translateY(0%);
     }
 
+    .header-container .main-nav ul li.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all .3s ease-in-out;
+    }
+
   .header-container .main-nav ul li {
     margin: 20px 0;
+    transform: translateY(50px);
+    opacity: 0;
   }
 
   .header-container .main-nav ul a {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 30px;
+    font-weight: 700;
   }
 
   .main-home {
@@ -1452,7 +1470,11 @@ input:focus, textarea:focus {
     width: 50%; }
 
   .works .group-works a.grid-item-4:after {
-    padding-top: 100%; } }
+    padding-top: 100%; }
+  .top-works h3 {
+    font-size: 50px;
+    margin: 30px 0;
+    }}
 @media (max-width: 500px) {
   /*. {
     min-height: 480px;
