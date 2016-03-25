@@ -29,7 +29,7 @@
 	    .siblings().removeClass('is-animate');
 	}
 
-	function smoothScroll (duration) {
+	function smoothScroll (duration, easing) {
 		$('a[href^="#"]').on('click', function(event) {
 
 		    var target = $( $(this).attr('href') );
@@ -38,7 +38,12 @@
 		        event.preventDefault();
 		        $('html, body').animate({
 		            scrollTop: target.offset().top
-		        }, duration);
+		        },
+						{
+							duration: duration,
+							easing: easing
+						}
+					);
 		    }
 		});
 	}
@@ -118,17 +123,40 @@
 		}, 4000);
 
 		skill();
-		smoothScroll(300);
+		smoothScroll(500, 'easeOutCirc');
 		// $body.niceScroll();
 		work();
 		clickBtn();
 		close_work();
 
-		$btnNav.click(function() {
-			$('.main-nav').toggle();
+		$('.btn-nav').click(function() {
+			$(this).toggleClass('close');
+
+			if(!$(this).hasClass('open')) {
+				openmenu();
+
+				$('.main-nav ul li').each(function(i){
+		      setTimeout(function(){
+		        $('.main-nav ul li').eq(i).addClass('is-visible');
+		      }, 100 * i);
+		    });
+			}
+			else {
+				closemenu();
+			}
 		});
 
 	});
+
+	function openmenu() {
+		$('.btn-nav').addClass('open');
+		$('body').addClass('active');
+	}
+
+	function closemenu() {
+		$('.btn-nav').removeClass('open');
+		$('body').removeClass('active');
+	}
 
 
 	$(window).scroll(function() {
@@ -147,7 +175,7 @@
 	  }
 	}
 
-	
+
 
 	// canvas
 	var Canvas = document.getElementById('canvas');
@@ -174,7 +202,7 @@ presets.o = function (x, y, s, dx, dy) {
         draw: function(ctx, t) {
             this.x += this.dx;
             this.y += this.dy;
-            
+
             ctx.beginPath();
             ctx.arc(this.x + + Math.sin((50 + x + (t / 10)) / 100) * 3, this.y + + Math.sin((45 + x + (t / 10)) / 100) * 4, this.r, 0, 2 * Math.PI, false);
             ctx.lineWidth = this.w;
@@ -199,7 +227,7 @@ presets.x = function (x, y, s, dx, dy, dr, r) {
             this.x += this.dx;
             this.y += this.dy;
             this.r += this.dr;
-            
+
             var _this = this;
             var line = function(x, y, tx, ty, c, o) {
                 o = o || 0;
@@ -210,15 +238,15 @@ presets.x = function (x, y, s, dx, dy, dr, r) {
                 ctx.strokeStyle = c;
                 ctx.stroke();
             };
-            
+
             ctx.save();
-            
+
             ctx.translate(this.x + Math.sin((x + (t / 10)) / 100) * 5, this.y + Math.sin((10 + x + (t / 10)) / 100) * 2);
             ctx.rotate(this.r * Math.PI / 180);
-            
+
             line(-1, -1, 1, 1, '#fff');
             line(1, -1, -1, 1, '#fff');
-            
+
             ctx.restore();
         }
     }

@@ -732,7 +732,7 @@ input:focus, textarea:focus {
   width: 135px;
   background: #eee; }
 
-.header .header-container {
+ .header-container {
   position: fixed;
   background: #fff;
   top: 0;
@@ -1282,9 +1282,6 @@ input:focus, textarea:focus {
     width: 40px;
     padding: 0; }
 
-  /*.btn-nav:hover {
-    background: yellow;
-  }*/
   .btn-nav span {
     left: 5px; }
 
@@ -1360,29 +1357,54 @@ input:focus, textarea:focus {
   .header .logo a {
     font-size: 30px; }
 
-  .header .header-container {
+  .header-container {
     width: 100%;
     position: relative; }
 
-  .header .header-container .mail-to {
+  .header-container .mail-to {
     display: none; }
 
-  .header .header-container .main-nav {
-    position: absolute;
-    top: 100%;
+  .header-container .main-nav {
+    position: fixed;
+    top: 0;
     right: 0;
     margin-top: 0;
-    display: none; }
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
 
-  .header .header-container .main-nav {
-    background: #fff;
-    border-top: 1px solid #eee; }
+  body.active .header-container {
+    background: transparent;
+  }
 
-  .header .header-container .main-nav ul {
+  body.active .header-container .main-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+      background: rgba(255, 255, 255, .95);
+  }
+
+  .header-container .main-nav ul {
     text-align: center;
     margin: 0;
     padding: 0;
-    line-height: 40px; }
+    line-height: 40px;
+    transform: translateY(150%);
+    transition: all .3s ease-in-out;}
+
+    body.active .header-container .main-nav ul {
+      transform: translateY(0%);
+    }
+
+  .header-container .main-nav ul li {
+    margin: 20px 0;
+  }
+
+  .header-container .main-nav ul a {
+    text-transform: uppercase;
+    font-size: 18px;
+  }
 
   .main-home {
     padding: 0; }
